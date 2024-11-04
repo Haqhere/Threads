@@ -1,0 +1,8 @@
+.body-home{
+    display:flex ;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: aliceblue;
+    height: 776px;
+}
