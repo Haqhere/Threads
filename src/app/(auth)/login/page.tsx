@@ -7,7 +7,7 @@ import { loginUser } from '@/store/reducers/userSlice';
 import { useRouter } from 'next/navigation';
 import { useAppDispatch, useAppSelector } from '@/hooks/use';
 import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css'; // Import styles
+import 'react-toastify/dist/ReactToastify.css'; 
 
 const Login: React.FC = () => {
   const [username, setUsername] = useState('');
@@ -47,8 +47,8 @@ const Login: React.FC = () => {
   };
 
   return (
-    <>
-    <body className='login-body'>
+    
+    <div className='login-body'>
 
       <div className="login-comp">
         <div className="login-form">
@@ -84,7 +84,7 @@ const Login: React.FC = () => {
                 src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e7/Instagram_logo_2016.svg/2048px-Instagram_logo_2016.svg.png"
                 alt="insta logo"
               />
-              <p>Continue with Instagram</p>
+              <p>Register with Instagram</p>
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512">
                 <path
                   fill="#a0a4ac"
@@ -107,8 +107,8 @@ const Login: React.FC = () => {
         </div>
       </div>
       
-      </body>
-    </>
+      </div>
+   
   );
 };
 

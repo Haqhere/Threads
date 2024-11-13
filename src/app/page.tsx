@@ -21,6 +21,7 @@ const Home = () => {
             className="w-32"
             src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/db/Threads_%28app%29.png/640px-Threads_%28app%29.png"
             alt="Threads logo"
+            
           />
           <p className="text-white text-xl mt-4">Threads</p>
       

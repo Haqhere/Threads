@@ -4,6 +4,10 @@ import React, { useEffect,useState } from 'react';
 import './register.css';
 import { useRouter } from 'next/navigation';
 import axiosInstance from '@/axios/axiosInstances';
+import Link from 'next/link'; 
+
+
+
 
 const Register: React.FC = () => {
 
@@ -31,7 +35,6 @@ const Register: React.FC = () => {
     console.log(response.data);
     setStatus("succeeded")
   } catch (error:any) {
-    console.log(error)
     setError(error.response?.data?.message || "signup failed")
     setStatus("failed")
   }
@@ -49,6 +52,9 @@ const Register: React.FC = () => {
     <body className='register-body'>
 
       <div className="register-comp">
+
+        <Link href="/login"><div className="back-arrow">🡸</div></Link>
+
         <div className='register-form'>
           <h3>Register with your Instagram account</h3>
 

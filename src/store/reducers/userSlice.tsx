@@ -1,5 +1,5 @@
 import axiosInstance from "@/axios/axiosInstances";
-import { createAsyncThunk,createSlice,isRejectedWithValue,PayloadAction } from "@reduxjs/toolkit";
+import { createAsyncThunk,createSlice,} from "@reduxjs/toolkit";
 
 
 
@@ -73,15 +73,27 @@ export const  loginUser = createAsyncThunk<User,{ username:string , password:str
 
 export const fetchCurrentUser = createAsyncThunk('fetchCurrentUser/usersdata', async (  ) => {
     const Id = localStorage.getItem('userId');
-    console.log(Id)
     try{
     const response = await axiosInstance.get(`/users/${Id}`);
-    return response.data;
+    return response.data?.user;
     }catch(error:any){
         console.error(error)
         return error
     }
 })
+
+export const UpdateUser = createAsyncThunk<CurrentUser,{rejectValue:string}>(
+    "updateUser/updateUserData",
+    async (updateData,{rejectWithValue}) => {
+        const Id = localStorage.getItem('userId');
+        try{
+            const response = await axiosInstance.patch(`/users/${Id}`,updateData);
+            return response.data;
+        }catch(error :any){
+            return rejectWithValue(error.response.data.message || "error updating userdata...")
+        }
+    }
+)
 
 
 

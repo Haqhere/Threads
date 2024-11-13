@@ -1,14 +1,16 @@
 "use client"
 
 
-import React, { Children, useEffect, useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import './main.css'
 import { useAppDispatch, useAppSelector } from '@/hooks/use'
 import { fetchPosts } from '@/store/reducers/postsSlice'
 import { formatDistanceToNow } from 'date-fns';
 import { fetchUsers,fetchCurrentUser } from '@/store/reducers/userSlice'
 import PostModal from '@/components/postModal/postmodal'
+import IconStore from '@/assets/icons'
 import Shimmerui from '@/components/loadingui/shimmerui'
+import Like from '../ui/Buttons/Like'
 
 const Main = () => {
 
@@ -16,24 +18,22 @@ const Main = () => {
 
   const {posts,status} = useAppSelector((state) => state.posts);
    
-  const {currentUser} = useAppSelector((state) => state.users)
+  const {currentUser} = useAppSelector((state) => state.users);
 
-  
+  const {icon} = IconStore();
+
   useEffect(() => {
     dispatch(fetchPosts());
     dispatch(fetchUsers());
     dispatch(fetchCurrentUser());
-  },[])
+  },[dispatch])
 
-  console.log(currentUser);
-  
-  
   const [modalOpen,setModalOpen] = useState<boolean>(false);
-
+ 
 
   return (
 
-<div className="body bg-black">
+<div className="bg-black">
 
   <div className="lay-1">
 
@@ -51,27 +51,27 @@ const Main = () => {
     <div className='nav2'>
      
       <div className="nav2-1">
-                     <div><svg viewBox="0 0 26 26" className="home" style={{ height: '34px', width: '24px' }}><path d="M2.25 12.8855V20.7497C2.25 21.8543 3.14543 22.7497 4.25 22.7497H8.25C8.52614 22.7497 8.75 22.5259 8.75 22.2497V17.6822V17.4997C8.75 15.1525 10.6528 13.2497 13 13.2497C15.3472 13.2497 17.25 15.1525 17.25 17.4997V17.6822V22.2497C17.25 22.5259 17.4739 22.7497 17.75 22.7497H21.75C22.8546 22.7497 23.75 21.8543 23.75 20.7497V12.8855C23.75 11.3765 23.0685 9.94815 21.8954 8.99883L16.1454 4.3454C14.3112 2.86095 11.6888 2.86095 9.85455 4.3454L4.10455 8.99883C2.93153 9.94815 2.25 11.3765 2.25 12.8855Z" fill="transparent" stroke="currentColor" strokeLinecap="round" strokeWidth="2.5" /></svg></div>
-                     <div><svg viewBox="0 0 26 26" className="search" style={{ height: '24px', width: '24px' }}><path clipRule="evenodd" d="M3.5 11.5C3.5 7.08172 7.08172 3.5 11.5 3.5C15.9183 3.5 19.5 7.08172 19.5 11.5C19.5 15.9183 15.9183 19.5 11.5 19.5C7.08172 19.5 3.5 15.9183 3.5 11.5ZM11.5 1C5.70101 1 1 5.70101 1 11.5C1 17.299 5.70101 22 11.5 22C13.949 22 16.2023 21.1615 17.9883 19.756L22.3661 24.1339C22.8543 24.622 23.6457 24.622 24.1339 24.1339C24.622 23.6457 24.622 22.8543 24.1339 22.3661L19.756 17.9883C21.1615 16.2023 22 13.949 22 11.5C22 5.70101 17.299 1 11.5 1Z" fill="currentColor" fillRule="evenodd" /></svg></div> 
-                     <div onClick={() => setModalOpen(true)}><svg viewBox="0 0 12 12" className="post" style={{  height: '24px', width: '24px' }}><path d="M6 2v8m4-4H2" stroke="currentColor" strokeLinecap="round" strokeWidth="1.5" /></svg></div>
-                     <div><svg viewBox="0 0 32 32" className="notifications" style={{ fill: 'transparent', height: '30px', width: '30px' }}><path d="M5.5 12.8568C5.5 17.224 9.22178 21.5299 15.0332 25.2032C15.3554 25.397 15.7401 25.5909 16 25.5909C16.2703 25.5909 16.655 25.397 16.9668 25.2032C22.7782 21.5299 26.5 17.224 26.5 12.8568C26.5 9.11212 23.8698 6.5 20.4599 6.5C18.4847 6.5 16.9356 7.39792 16 8.74479C15.0851 7.40812 13.5257 6.5 11.5401 6.5C8.14059 6.5 5.5 9.11212 5.5 12.8568Z" stroke="currentColor" strokeWidth="2.5" /></svg></div>
-                     <div><svg viewBox="0 0 26 26" className="profile" style={{ fill: 'transparent', height: '24px', width: '24px' }}><circle cx="13" cy="7.25" r="4" stroke="currentColor" strokeWidth="2.5"></circle><path d="M6.26678 23.75H19.744C21.603 23.75 22.5 23.2186 22.5 22.0673C22.5 19.3712 18.8038 15.75 13 15.75C7.19625 15.75 3.5 19.3712 3.5 22.0673C3.5 23.2186 4.39704 23.75 6.26678 23.75Z" stroke="currentColor" strokeWidth="2.5"></path></svg></div>
+                     <div className='svg'>{icon.home}</div>
+                     <div className='svg'>{icon.search}</div> 
+                     <div onClick={() => setModalOpen(true)} className='svg'>{icon.addpost}</div>
+                     <div className='svg'>{icon.notify}</div>
+                     <div className='svg'>{icon.profile}</div>
       </div>
 
       <div className="nav2-2">
-              <div><svg viewBox="0 0 24 24" className="pin" style={{ fill: 'transparent', height: '26px', width: '26px' }}><path d="M12 23.922c-.072 0-.166-.085-.283-.254a3.489 3.489 0 0 1-.352-.654 5.193 5.193 0 0 1-.293-.899 4.25 4.25 0 0 1-.117-.976v-5.576h2.08v5.576c0 .319-.039.644-.117.976a5.202 5.202 0 0 1-.293.899 3.489 3.489 0 0 1-.352.654c-.11.17-.201.254-.273.254ZM5.78 16.49c-.482 0-.87-.14-1.163-.42-.286-.286-.43-.66-.43-1.123 0-.748.2-1.478.596-2.187.397-.71.947-1.345 1.65-1.905a8.372 8.372 0 0 1 2.481-1.328c.95-.332 1.98-.498 3.086-.498 1.107 0 2.132.166 3.076.498a8.372 8.372 0 0 1 2.48 1.329c.71.56 1.26 1.194 1.651 1.904.397.71.596 1.439.596 2.187 0 .463-.143.837-.43 1.123-.286.28-.67.42-1.152.42H5.779Zm.488-1.787h11.455c.182 0 .257-.104.224-.312-.058-.43-.244-.86-.556-1.29-.313-.43-.73-.82-1.25-1.171a6.823 6.823 0 0 0-1.836-.85A7.792 7.792 0 0 0 12 10.758a7.89 7.89 0 0 0-2.314.322 6.85 6.85 0 0 0-1.827.85c-.52.351-.937.742-1.25 1.172-.312.43-.5.859-.566 1.289-.033.208.042.312.225.312Zm-.84-13.086c0-.338.117-.618.351-.84.241-.228.554-.341.938-.341h10.566c.384 0 .694.113.928.341.24.222.361.502.361.84 0 .352-.136.7-.41 1.045a5.307 5.307 0 0 1-.693.723c-.293.26-.632.534-1.016.82-.384.287-.784.573-1.201.86l.361 5.41h-1.875l-.361-6.24c-.013-.17.042-.284.166-.342.3-.163.583-.326.85-.489.273-.162.514-.315.722-.459.209-.143.381-.27.518-.38.137-.118.23-.202.283-.254.046-.053.055-.098.03-.137-.02-.04-.056-.059-.108-.059H8.152a.123.123 0 0 0-.107.059c-.02.039-.01.084.03.137.051.052.146.136.282.253.144.111.32.238.528.381.215.144.452.297.713.46.267.162.553.325.859.488.124.058.182.172.176.341l-.371 6.24H8.377l.371-5.41a32.5 32.5 0 0 1-1.21-.859 19.68 19.68 0 0 1-1.017-.82 5.57 5.57 0 0 1-.683-.723c-.274-.345-.41-.693-.41-1.045Z" fill="currentColor"></path></svg></div>
+              <div><svg viewBox="0 0 24 24" className="pin" style={{ fill: 'transparent', height: '26px', width: '26px' }}><path d="M12 23.922c-.072 0-.166-.085-.283-.254a3.489 3.489 0 0 1-.352-.654 5.193 5.193 0 0 1-.293-.899 4.25 4.25 0 0 1-.117-.976v-5.576h2.08v5.576c0 .319-.039.644-.117.976a5.202 5.202 0 0 1-.293.899 3.489 3.489 0 0 1-.352.654c-.11.17-.201.254-.273.254ZM5.78 16.49c-.482 0-.87-.14-1.163-.42-.286-.286-.43-.66-.43-1.123 0-.748.2-1.478.596-2.187.397-.71.947-1.345 1.65-1.905a8.372 8.372 0 0 1 2.481-1.328c.95-.332 1.98-.498 3.086-.498 1.107 0 2.132.166 3.076.498a8.372 8.372 0 0 1 2.48 1.329c.71.56 1.26 1.194 1.651 1.904.397.71.596 1.439.596 2.187 0 .463-.143.837-.43 1.123-.286.28-.67.42-1.152.42H5.779Zm.488-1.787h11.455c.182 0 .257-.104.224-.312-.058-.43-.244-.86-.556-1.29-.313-.43-.73-.82-1.25-1.171a6.823 6.823 0 0 0-1.836-.85A7.792 7.792 0 0 0 12 10.758a7.89 7.89 0 0 0-2.314.322 6.85 6.85 0 0 0-1.827.85c-.52.351-.937.742-1.25 1.172-.312.43-.5.859-.566 1.289-.033.208.042.312.225.312Zm-.84-13.086c0-.338.117-.618.351-.84.241-.228.554-.341.938-.341h10.566c.384 0 .694.113.928.341.24.222.361.502.361.84 0 .352-.136.7-.41 1.045a5.307 5.307 0 0 1-.693.723c-.293.26-.632.534-1.016.82-.384.287-.784.573-1.201.86l.361 5.41h-1.875l-.361-6.24c-.013-.17.042-.284.166-.342.3-.163.583-.326.85-.489.273-.162.514-.315.722-.459.209-.143.381-.27.518-.38.137-.118.23-.202.283-.254.046-.053.055-.098.03-.137-.02-.04-.056-.059-.108-.059H8.152a.123.123 0 0 0-.107.059c-.02.039-.01.084.03.137.051.052.146.136.282.253.144.111.32.238.528.381.215.144.452.297.713.46.267.162.553.325.859.488.124.058.182.172.176.341l-.371 6.24H8.377l.371-5.41a32.5 32.5 0 0 1-1.21-.859 19.68 19.68 0 0 1-1.017-.82 5.57 5.57 0 0 1-.683-.723c-.274-.345-.41-.693-.41-1.045Z" fill="rgb(80, 80, 80)"></path></svg></div>
               <div><svg style={{width:'25px', height:'25px'}} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path fill="#3a3a3a" d="M32 288c-17.7 0-32 14.3-32 32s14.3 32 32 32l384 0c17.7 0 32-14.3 32-32s-14.3-32-32-32L32 288zm0-128c-17.7 0-32 14.3-32 32s14.3 32 32 32l384 0c17.7 0 32-14.3 32-32s-14.3-32-32-32L32 160z"/></svg></div>
       </div>
 
     </div>
 
     <div className='Post-window'>
-  <div className="add-post h-[70px] flex items-center justify-end border border-stone-800 gap-[320px] text-zinc-500">
-    <div className='cpro'>
-  
+  <div className="add-post h-[70px] flex items-center justify-end border border-stone-800 text-zinc-500">
+    <div className='current'>
+      <img className='cpro' src={currentUser?.profilepic || "https://cdn-icons-png.flaticon.com/512/149/149071.png"} alt="profilepic" />  
+      <p className='text-center'>What'new...</p>
     </div>
-    <p className=''>Start a thread...</p>
-    <button className='w-[80px] h-[30px] rounded-sm bg-stone-800 mr-5 text-white' onClick={() => setModalOpen(true)}>Post</button>
+    <button className=' post-btn text-white ' onClick={() => setModalOpen(true)}>Post</button>
   </div>
   <PostModal open={modalOpen} onClose={() => setModalOpen(false)} >
       <div>
@@ -93,23 +93,26 @@ const Main = () => {
         </div>
         <div className="p-2">
           <p className='u-name'>
-            {post.postById.username}
+            {post.postById?.username}
             <span> {formatDistanceToNow(new Date(post.createdOn), { addSuffix: true })}</span>
           </p>
           <p className='f-text'>{post.text}</p>
           {post.image && <img className='f-image' src={post.image} alt='post' />}
-          <div className="p-likes">{post.likes.length} Likes</div>
-          <div className="p-comment">
-            {post.replies?.map((reply) => (
-              <div key={reply._id}>{reply.text}</div>
-            ))}
-          </div>
+
+         <div className="p-3 flex">
+          <div className="p-likes" ><Like post={post} initialLike={post.likes.length}/></div>
+          <div className="p-comment"><p className='w-5 h-5'>{icon.comment}</p><p className='text-xs'>{post.replies.length}</p></div>
+          <div className="p-repost"><p className='w-5 h-5'>{icon.repost}</p><p className='text-xs'>{post.reposts.length}</p></div>
+          <div className="p-share"><p className='w-5 h-5'>{icon.share}</p><p className='text-xs'></p></div>
+          
+         </div>
         </div>
       </div>
     ))
   )}
 </div>
 
+  
   
 
     <div className="adj"></div>
