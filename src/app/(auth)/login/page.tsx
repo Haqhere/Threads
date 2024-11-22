@@ -1,55 +1,52 @@
 "use client";
 
-import React, { useState, useEffect } from 'react';
-import './login.css';
-import Link from 'next/link';
-import { loginUser } from '@/store/reducers/userSlice';
-import { useRouter } from 'next/navigation';
-import { useAppDispatch, useAppSelector } from '@/hooks/use';
-import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css'; 
+import React, { useState, useEffect } from "react";
+import "./login.css";
+import Link from "next/link";
+import { loginUser } from "@/store/reducers/userSlice";
+import { useRouter } from "next/navigation";
+import { useAppDispatch, useAppSelector } from "@/hooks/use";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import { EyeOff } from "lucide-react";
+import { Eye } from "lucide-react";
 
 const Login: React.FC = () => {
-  const [username, setUsername] = useState('');
-  const [password, setPassword] = useState('');
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
+  const [showPassword, setShowPassword] = useState(false);
 
   const dispatch = useAppDispatch();
   const router = useRouter();
 
   const { user, status, error } = useAppSelector((state) => state.users);
 
-  useEffect(() => {
-    if (status === 'succeeded' && user) {
-      const userId = user._id;
-      localStorage.setItem('userId', userId);
-      router.push('/main');
-    } else if (status === 'failed' && error) {
-      toast.error(error, {
-        position: 'top-right', 
-        autoClose: 3000, 
-      });
-    }
-  }, [status, user, error, router]);
-
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
-    
     if (!username || !password) {
-      toast.error('Please enter both username and password.', {
-        position: 'top-right', 
+      toast.error("Please enter both username and password.", {
+        position: "top-right",
         autoClose: 3000,
       });
       return;
+    }
+    if (status === "succeeded" && user) {
+      const userId = user._id;
+      localStorage.setItem("userId", userId);
+      router.push("/main");
+    } else if (status === "failed" && error) {
+      toast.error(error, {
+        position: "top-right",
+        autoClose: 3000,
+      });
     }
 
     dispatch(loginUser({ username, password }));
   };
 
   return (
-    
-    <div className='login-body'>
-
+    <div className="login-body">
       <div className="login-comp">
         <div className="login-form">
           <h3>Log in with your Instagram account</h3>
@@ -60,14 +57,38 @@ const Login: React.FC = () => {
               value={username}
               onChange={(e) => setUsername(e.target.value)}
             />
-            <input
-              type="password"
-              placeholder="Password"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-            />
-            <button type="submit" className="login-button" disabled={status === 'loading'}>
-              {status === 'loading' ? <div className="flex flex-row gap-2 justify-center content-center"> <div className="w-2 h-2 rounded-full bg-black animate-bounce"></div> <div className="w-2 h-2 rounded-full bg-black animate-bounce [animation-delay:-.3s]"></div> <div className="w-2 h-2 rounded-full bg-black animate-bounce [animation-delay:-.5s]"></div></div> : 'Log in'}
+            <div>
+              <input
+                type={showPassword === true ? "text" : "password"}
+                placeholder="Password"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+              />
+              <div
+                className="eye"
+                onClick={() => {
+                  showPassword === true
+                    ? setShowPassword(false)
+                    : setShowPassword(true);
+                }}
+              >
+                {showPassword === true ? <EyeOff /> : <Eye />}
+              </div>
+            </div>
+            <button
+              type="submit"
+              className="login-button"
+              disabled={status === "loading"}
+            >
+              {status === "loading" ? (
+                <div className="flex flex-row gap-2 justify-center content-center">
+                  <div className="w-2 h-2 rounded-full bg-black animate-pulse"></div>{" "}
+                  <div className="w-2 h-2 rounded-full bg-black animate-pulse [animation-delay:-.3s]"></div>{" "}
+                  <div className="w-2 h-2 rounded-full bg-black animate-pulse [animation-delay:-.5s]"></div>
+                </div>
+              ) : (
+                "Log in"
+              )}
             </button>
           </form>
 
@@ -95,7 +116,6 @@ const Login: React.FC = () => {
           </Link>
         </div>
 
-       
         <ToastContainer />
 
         <div className="footer-login">
@@ -106,9 +126,7 @@ const Login: React.FC = () => {
           <p>Report a problem</p>
         </div>
       </div>
-      
-      </div>
-   
+    </div>
   );
 };
 

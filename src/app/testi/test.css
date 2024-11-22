@@ -1,0 +1,75 @@
+/* .image-test-body {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: white;
+  }
+  
+  .cbtn {
+    background-color: rgb(185, 119, 246);
+    margin-left: 50px;
+    margin-bottom: 50px;
+    text-align: center;
+    margin-top: 100px;
+    border-radius: 10px;
+  }
+  
+  #check {
+    display: none; /* Hide the checkbox itself */
+  /* } */
+  
+  /* .box {
+    display: none; /* Hide the box by default */
+    /* margin-top: 20px;
+    margin-left: 50px;
+    width: 200px;
+    height: 100px;
+    background-color: lightcoral;
+    border-radius: 8px;
+    text-align: center;
+    line-height: 100px;
+    font-weight: bold;
+    color: white; */
+  /* } */
+  
+  /* When the checkbox is checked, show the .box */
+  /* #check:checked ~ .box {
+    display: block;
+  } */
+  
+
+
+
+
+  .body{
+    position: fixed;
+    top: 0px;
+    bottom: 0px;
+    right: 0px;
+    left: 0px;
+    background-color: aliceblue;
+  }
+
+  .b{
+    width: 100px;
+    height: 40px;
+    background-color: rgb(255, 255, 255);
+    color: rgb(224, 188, 188);
+    margin-left: 50px;
+    margin-top: 50px;
+    text-align: center;
+  }
+
+  #check {
+    display: none;
+  }
+
+  .box{
+    display: none;
+  }
+
+  #check:checked ~ .box{
+    display: block;
+  }

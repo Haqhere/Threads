@@ -47,21 +47,6 @@ export const fetchPosts = createAsyncThunk(
         });
             
             
-export const addNewPost = createAsyncThunk(
-    "addPost",
-                async(newPost:{userId:string; text:string; image:string},{rejectWithValue}) => {
-                    try{
-                        const response = await axiosInstance.post('/post',newPost);
-                        return response.data;
-                    } catch (error : any) {
-                        if(error.response){
-                            return rejectWithValue(error.response.data);
-                        }else{
-                            return rejectWithValue({message: 'failed to add new post'});
-                        }
-                    }
-                }
-);
 
 
  const postsSlice = createSlice({
@@ -99,18 +84,6 @@ export const addNewPost = createAsyncThunk(
                 })
                 
 
-                .addCase(addNewPost.pending, (state) => {
-                    state.status = 'loading';
-                    state.error = null
-                })
-                .addCase(addNewPost.fulfilled, (state, action : PayloadAction<Post>) => {
-                    state.status ="succeeded";
-                    state.posts.unshift(action.payload);
-                })
-                .addCase(addNewPost.rejected, (state, action ) => {
-                    state.status = "failed";
-                    state.error = action.error.message || 'Error';
-                })
      }
  })
 
