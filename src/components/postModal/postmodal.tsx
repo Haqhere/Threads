@@ -2,11 +2,9 @@ import React, { useRef, useState } from "react";
 import "./postModal.css";
 import { useAppSelector } from "@/hooks/use";
 import IconStore from "@/assets/icons";
-import { ToastContainer, toast } from "react-toastify";
+import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import axiosInstance from "@/axios/axiosInstances";
-
-
 
 
 
@@ -26,7 +24,7 @@ const PostModal: React.FC<propTypes> = ({ open, onClose }) => {
   const[image,setImage] = useState<any>('')
   const[preview,setPreview] = useState<any>('');
   const[dummy, setDummy] = useState(false);
-  const[modal,setModal] = useState(open)
+  const[status,setStatus] = useState("idle")
 
 
 
@@ -57,7 +55,7 @@ const PostModal: React.FC<propTypes> = ({ open, onClose }) => {
     
   };
   
-  const handleDummy = () => {
+  const handleDummy = () => { 
     setDummy(true);
     setTimeout(() => {
       setDummy(false);
@@ -86,7 +84,8 @@ const handleSubmit =  async() => {
     })
     return;
   }
-
+  
+  setStatus('loading')
 
   const newPostData = new FormData();
   newPostData.append('userId',userId);
@@ -136,6 +135,8 @@ const handleSubmit =  async() => {
             </div>
           </div>
 
+              <div>{preview === '' ? ('') : (<img className="preview" src={preview} alt="preview" />) }</div>
+
           <div className="content-center flex items-center justify-around w-48 ml-6">
             <div className="w-5 text-gray-500 text-[35px]  ">|</div>
             <div className="w-5 font-mono" onClick={handleFileClick}>
@@ -182,9 +183,17 @@ const handleSubmit =  async() => {
             )}
           </div>
 
-          <div className="conent-final text-neutral-600 ml-5 mt-5 flex gap-72">
+          <div className="conent-final text-neutral-600 ml-5 mt-5 mb-5 flex gap-72">
             <p>Your followers can reply & qoute</p>
-            <button className="border rounded w-12 text-white" onClick={handleSubmit}>Post</button>
+            <button className="border rounded w-12 text-white" onClick={handleSubmit}> {status === "loading" ? (
+                <div className="flex flex-row gap-2 justify-center content-center ">
+                  <div className="w-2 h-2 rounded-full bg-white animate-pulse"></div>
+                  <div className="w-2 h-2 rounded-full bg-white animate-pulse [animation-delay:-.3s]"></div>{" "}
+                  <div className="w-2 h-2 rounded-full bg-white animate-pulse [animation-delay:-.5s]"></div>
+                </div>
+              ) : (
+                "Post"
+              )}</button>
           </div>
         </div>
       </div>
@@ -194,3 +203,6 @@ const handleSubmit =  async() => {
 
 
 export default PostModal;
+ 
+
+

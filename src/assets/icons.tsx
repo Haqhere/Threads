@@ -6,6 +6,8 @@
                ),
       search: (<svg viewBox="0 0 26 26" className="search" style={{ height: '24px', width: '24px' }}><path clipRule="evenodd" d="M3.5 11.5C3.5 7.08172 7.08172 3.5 11.5 3.5C15.9183 3.5 19.5 7.08172 19.5 11.5C19.5 15.9183 15.9183 19.5 11.5 19.5C7.08172 19.5 3.5 15.9183 3.5 11.5ZM11.5 1C5.70101 1 1 5.70101 1 11.5C1 17.299 5.70101 22 11.5 22C13.949 22 16.2023 21.1615 17.9883 19.756L22.3661 24.1339C22.8543 24.622 23.6457 24.622 24.1339 24.1339C24.622 23.6457 24.622 22.8543 24.1339 22.3661L19.756 17.9883C21.1615 16.2023 22 13.949 22 11.5C22 5.70101 17.299 1 11.5 1Z" fill="currentColor" fillRule="evenodd" /></svg>
                ),
+      onsearch: (<svg viewBox="0 0 26 26" className="search" style={{ height: '16px', width: '16px' }}><path clipRule="evenodd" d="M3.5 11.5C3.5 7.08172 7.08172 3.5 11.5 3.5C15.9183 3.5 19.5 7.08172 19.5 11.5C19.5 15.9183 15.9183 19.5 11.5 19.5C7.08172 19.5 3.5 15.9183 3.5 11.5ZM11.5 1C5.70101 1 1 5.70101 1 11.5C1 17.299 5.70101 22 11.5 22C13.949 22 16.2023 21.1615 17.9883 19.756L22.3661 24.1339C22.8543 24.622 23.6457 24.622 24.1339 24.1339C24.622 23.6457 24.622 22.8543 24.1339 22.3661L19.756 17.9883C21.1615 16.2023 22 13.949 22 11.5C22 5.70101 17.299 1 11.5 1Z" fill="grey" fillRule="evenodd" /></svg>
+               ),
       addpost:(<svg viewBox="0 0 12 12" className="post" style={{  height: '24px', width: '24px' }}><path d="M6 2v8m4-4H2" stroke="currentColor" strokeLinecap="round" strokeWidth="1.5" /></svg>
                ),
       notify :(<svg viewBox="0 0 32 32" className="notifications" style={{ fill: 'transparent', height: '30px', width: '30px' }}><path d="M5.5 12.8568C5.5 17.224 9.22178 21.5299 15.0332 25.2032C15.3554 25.397 15.7401 25.5909 16 25.5909C16.2703 25.5909 16.655 25.397 16.9668 25.2032C22.7782 21.5299 26.5 17.224 26.5 12.8568C26.5 9.11212 23.8698 6.5 20.4599 6.5C18.4847 6.5 16.9356 7.39792 16 8.74479C15.0851 7.40812 13.5257 6.5 11.5401 6.5C8.14059 6.5 5.5 9.11212 5.5 12.8568Z" stroke="currentColor" strokeWidth="2.5" /></svg>
@@ -29,8 +31,8 @@
       hash :  (<svg aria-label="Add a tag" role="img" viewBox="1 1 22 22" className="x1lliihq x135i0dr x2lah0s x1f5funs x1n2onr6 x1bl4301 x1gaogpn x73je2i x1owpc8m xhr4kjn" style={{ height: '20px', width: '20px', fill: 'currentColor' } as React.CSSProperties} xmlns="http://www.w3.org/2000/svg"><title>Add a tag</title><path d="M5 8.50012H20" stroke="rgb(100, 100, 100)" strokeWidth="1.5"></path><path d="M4 15.0001H20" stroke="rgb(100, 100, 100)" strokeWidth="1.5"></path><path d="M7.59985 19.9399L10.3999 4.06036" stroke="rgb(100, 100, 100)" strokeWidth="1.5"></path><path d="M13.5999 19.9399L16.3999 4.06036" stroke="rgb(100, 100, 100)" strokeWidth="1.5"></path></svg>
                ),
       poll :  (<svg aria-label="Add a poll" role="img" viewBox="0 0 24 24" className="x1lliihq x135i0dr x2lah0s x1f5funs x1n2onr6 x1bl4301 x1gaogpn" style={{ height: '20px', width: '20px', fill: 'currentColor' } as React.CSSProperties}><title>Add a poll</title><rect fill="grey" height="1.5" rx="0.75" width="8" x="4" y="5.5" stroke="rgb(100, 100, 100)" strokeWidth="0.5"></rect><rect fill="grey" height="1.5" rx="0.75" width="16" x="4" y="11.25" stroke="rgb(100, 100, 100)" strokeWidth="0.5"></rect><rect fill="grey" height="1.5" rx="0.75" width="11" x="4" y="17" stroke="rgb(100, 100, 100)" strokeWidth="0.5"></rect></svg>
-               ),
-    
+               ),     
+      
             }
 }
 
