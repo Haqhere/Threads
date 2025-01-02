@@ -1,0 +1,98 @@
+
+.nav-main{
+    display: flex;
+    justify-content: space-between;
+    color: white;
+    height: 60px;
+    margin-top: 15px;
+    margin-right: 20px;
+}
+
+.nav-main img{
+    margin:8px 15px;
+    display: flex;
+    justify-content: space-between;
+    width: 46px;
+    height:45px;
+}
+
+.h{
+    margin-top: 15px;
+    margin-right: 73px; 
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+body{
+    margin-top:-15px;
+    padding:0px;
+    color: white;
+}
+
+.svg{
+    color: rgb(80, 80, 80);
+}
+
+.svg:hover{
+    color: aliceblue;
+    cursor: pointer;
+}
+
+.lay-2{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.adj{
+    width: 90px;
+}
+
+.nav2{
+    width: 80px;
+    height: 700px;
+    display:flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav2-1{
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-top: 130px;
+}
+
+.nav2-1 div,.nav2-2 div{
+width: 55px;
+height: 45px;
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+border-radius: 10px;
+}
+
+
+.nav2-2{
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 80px;
+    gap: 10px;
+}
+
+.Post-window{
+width: 630px;
+height: 715px;
+border: 1px solid rgb(58, 58, 58);
+border-radius:30px 30px 0px 0px;
+overflow:scroll;
+scroll-behavior: smooth;
+background-color: rgb(25, 25, 25);
+
+}
+
+.Post-window::-webkit-scrollbar {
+    display: none; 
+}
+

@@ -1,0 +1,151 @@
+
+
+.login-body {
+  margin: 0px;
+  background-image: url("../../../assets/bg.threads.webp");
+  background-color: black;
+  background-size: cover;
+  background-repeat: no-repeat;
+  color: white;
+}
+
+h3 {
+  text-align: center;
+  margin-bottom: 10px;
+  margin-top: -10px;
+}
+
+.login-comp{
+  position: relative;
+  top: 200px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.login-form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.login-form form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+
+.login-form form input {
+  width: 350px;
+  height: 50px;
+  background-color: rgb(36, 36, 36);
+  border-radius: 10px;
+  padding-left: 10px;
+}
+.login-button{    
+  width: 350px;
+  font-size: 16px;
+  height: 50px;
+  background-color: white;
+  border-radius: 10px;
+  color: rgb(121, 121, 121);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  transition: color 0.3s ease;
+}
+
+.login-button:hover {
+  color: #141414;
+}
+
+.error-mess {
+  position: fixed;
+  bottom: -50px; /* Start hidden */
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #232323;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 5px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  font-size: 16px;
+  z-index: 1000;
+  opacity: 0; /* Start invisible */
+  transition: bottom 0.5s ease, opacity 0.5s ease; /* Transition for smooth effects */
+}
+
+.error-mess.show {
+  bottom: 130px; /* Position to show */
+  opacity: 1; /* Make visible */
+}
+
+.error-mess.hide {
+  bottom: -50px; /* Position to hide */
+  opacity: 0; /* Make invisible */
+}
+
+.fps {
+  color: rgb(76, 75, 75);
+  text-align: center;
+  margin-top: 10px;
+  font-size: 15px;
+}
+
+.or {
+  margin-top: 20px;
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 10px;
+}
+
+hr {
+  width: 150px;
+  border: 1px solid rgb(72, 72, 72);
+}
+
+.or p {
+  margin-top: -10px;
+  color: rgb(53, 53, 53);
+  padding: 0px 10px;
+}
+
+.insta-login {
+  width: 350px;
+  height: 70px;
+  display: flex;
+  border: 1px solid rgb(53, 53, 53);
+  justify-content: space-evenly;
+  border-radius: 15px;
+  align-items: center;
+  padding: 15px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.insta-login img{
+  width: 40px;
+  height: 40px;
+}
+
+.insta-login svg {
+  width: 15px;
+  height: 15px;
+}
+
+.footer-login {
+  position: relative;
+  font-size: 12px;
+  top: 150px;
+  display: flex;
+  gap: 10px;
+  color: rgb(131, 131, 131);
+}
+
+
+.eye{
+  position: relative;
+  top: 15px;
+  right: 40px;
+}

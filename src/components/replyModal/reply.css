@@ -1,0 +1,29 @@
+.R-background{
+    position:fixed;
+    top: 0px;
+    bottom: 0px;
+    right: 0px;
+    left: 0px;
+    background-color:  rgba(22, 22, 22, 0.010);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.R-box{
+    width: 630px;
+    height: 600px;
+    border-radius: 10px;
+    background-color: rgb(40, 40, 40);
+    color: white;
+}
+
+.R-box{
+    overflow-y:scroll;
+}
+
+.pr-box{
+    border-bottom:1px solid rgb(70, 70, 70);
+}
+
+

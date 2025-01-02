@@ -1,0 +1,287 @@
+
+.nav-main{
+    display: flex;
+    justify-content: space-between;
+    color: white;
+    height: 60px;
+    margin-top: 15px;
+    margin-right: 20px;
+}
+
+.nav-main img{
+    margin:8px 15px;
+    display: flex;
+    justify-content: space-between;
+    width: 46px;
+    height:45px;
+}
+
+.h{
+    margin-top: 15px;
+    margin-right: 73px; 
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+body{
+    margin-top:-15px;
+    padding:0px;
+    color: white;
+}
+
+.svg{
+    color: rgb(80, 80, 80);
+}
+
+.svg:hover{
+    color: aliceblue;
+    cursor: pointer;
+}
+
+.lay-2{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.adj{
+    width: 75px;
+}
+
+.nav2{
+    width: 80px;
+    height: 700px;
+    display:flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav2-1{
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-top: 130px;
+}
+
+.nav2-1 div,.nav2-2 div{
+width: 55px;
+height: 45px;
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+border-radius: 10px;
+}
+
+
+.nav2-2{
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 80px;
+    gap: 10px;
+}
+
+.Post-window{
+width: 630px;
+height: 715px;
+border: 1px solid rgb(58, 58, 58);
+border-radius:30px 30px 0px 0px;
+overflow:scroll;
+scroll-behavior: smooth;
+background-color: rgb(25, 25, 25);
+
+}
+
+.Post-window::-webkit-scrollbar {
+    display: none; 
+}
+
+.post-btn{
+    border: 1px solid rgb(60, 60, 60);
+    width: 50px;
+    height: 35px;
+    border-radius: 10px;
+    margin-right: 20px;
+}
+
+.f-layout{
+    border: 1px solid rgb(50, 50, 50);
+    display:flex
+}
+
+.f-propic{
+width: 40px;
+height:35px;
+border-radius: 50px;
+object-fit: cover;
+}
+
+.p-1{
+    min-width:60px
+}
+.p-1 img{
+    width: 35px;
+    margin-top: 10px;
+    margin-left: 12px;
+    overflow: hidden;
+}
+
+.u-name{
+    font-size: 20px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+.u-name span{
+    font-size: 12px;
+    font-family:sans-serif;
+    margin-left: 10px;
+    color: rgba(116, 115, 115, 0.718);
+}
+
+.f-text{
+    margin-top: 10px;
+}
+
+
+.f-image{
+    margin-top: 20px;
+    margin-bottom: 20px;
+    max-width: 515px;
+    min-width: 250px;
+    max-height:430px;
+    border-radius: 10px;
+    object-fit:cover;
+    display: block;
+    border: 1px solid rgb(73, 73, 73);
+}
+
+.cpro{
+    margin-left: 15px;
+    width: 37px;
+    height:37px;
+    border-radius: 50px;
+    object-fit: cover;
+}
+
+
+.current{
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    
+}
+
+.add-post{
+    display: flex;
+    justify-content: space-between;
+}
+
+
+.f-image {
+    transition: max-width 0.3s ease, max-height 0.3s ease;
+}
+
+.p-likes{
+    color: rgb(175, 175, 175);
+    width: 60px;
+    height: 30px;
+    border-radius: 20px;  
+    
+    
+    
+}
+
+.p-likes:hover{ 
+    transition: ease-in 0.5s;
+    background-color: rgb(30, 30, 30);
+}
+
+.p-comment{
+    color: rgb(175, 175, 175);
+    width: 60px;
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 20px;   
+    gap: 2px; 
+}
+
+.p-comment:hover{ 
+    transition: ease-in 0.5s;
+    background-color: rgb(30, 30, 30);
+}
+
+
+.p-repost{
+    color: rgb(175, 175, 175);
+    width: 60px;
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 20px;   
+    gap: 2px; 
+}
+
+.p-repost:hover{ 
+    transition: ease-in 0.5s;
+    background-color: rgb(30, 30, 30);
+}
+
+
+.p-share{
+    color: rgb(175, 175, 175);
+    width: 60px;
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 20px;   
+    gap: 2px; 
+}
+
+.p-share:hover{ 
+    transition: ease-in 0.5s;
+    background-color: rgb(30, 30, 30);
+}
+
+
+
+
+
+
+@media(max-width:800px){
+    .f-image{
+        max-width:480px;
+        max-height:380px;
+    }
+}
+
+
+@media(max-width:720px){
+    .f-image{
+        max-width:400px;
+        max-height:350px;
+    }
+}
+
+
+@media(max-width:630px){
+    .f-image{
+        max-width:350px;
+        max-height:350px;
+    }
+}
+@media(max-width:580px){
+    .f-image{
+        max-width:300px;
+        max-height:350px;
+    }
+}
+@media(max-width:530px){
+    .f-image{
+        max-width:280px;
+        max-height:350px;
+    }
+}
